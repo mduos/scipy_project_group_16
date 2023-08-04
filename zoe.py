@@ -1,5 +1,5 @@
 import pandas as pd
-#import seaborn as sns
+import seaborn as sns
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -19,25 +19,26 @@ print(df.isnull().sum())
 # Drop duplicates
 df = df.drop_duplicates()
 
+# More information about the dataset
+print(df.info())                        # Shape and size of dataset
+print(df.describe()) 
+
 # Overview of unique release years
 release_years = np.sort(df['year'].unique())
 print(release_years)                       
 
 # Since dataset is supposed to only include songs from 2000-2019, we'll get rid of any songs released before 2000
 data_drop = df[(df['year'] < 2000) | (df['year'] > 2019)].index
-df = df.drop(data_drop)
-
-# Checking unique release years again
-print(np.sort(df['year'].unique()))
-
-# More information about the dataset
-print(df.info())                        # Shape and size of dataset
-print(df.describe())                    
+df = df.drop(data_drop)                   
 
 # How many artists, songs and are in the dataset?
-print(df['artist'].nunique())    # There's a total of 819 artists in the dataset
-print(df['song'].nunique())      # There's a total of 1840 songs in the dataset
-print(df['genre'].nunique())     # There's a total of 58 genres/genre combinations in the dataset
+print(df['artist'].nunique())       # There's a total of 819 artists in the dataset
+print(df['song'].nunique())         # There's a total of 1840 songs in the dataset
+
+df['genre'] = df['genre'].str.replace(" ", "")
+df['genre'] = df['genre'].str.split(",", expand = False)
+genres = df.explode('genre')        # Split genre combinations
+print(genres['genre'].nunique())    # There's a total of 15 genres in the dataset
 
 # Who are the top 10 artists?
 top_10_artists = df.groupby('artist')[['artist','song', 'explicit','danceability','popularity','loudness','energy','speechiness','instrumentalness','acousticness','liveness','genre']].sum(numeric_only=True).sort_values('popularity', ascending=False).head(10)
@@ -68,17 +69,21 @@ plt.xticks(rotation = 75)
 plt.title('Top 10 Songs from 2000-2019', color = 'black', fontsize = 20)
 plt.show()
 
+# What are the top 10 genres/genre combinations?
+top_10_genres = genres.groupby('genre')[['artist','song', 'explicit','danceability','popularity','loudness','energy','speechiness','instrumentalness','acousticness','liveness','genre']].sum(numeric_only=True).sort_values('popularity', ascending=False).head(10)
+print(top_10_genres)
 
+fig = plt.figure()
 
-# Top 5 most popular genres
-
+plt.bar(genres['genre'], genres['popularity'], color = 'Orange')
+plt.xlabel('Genre')
+plt.ylabel('Popularity')
+plt.xticks(rotation = 75)
+plt.title('Top 10 Genres from 2000-2019', color = 'black', fontsize = 20)
+plt.show()
 
 # Most popular artist each year 
-
-
 # Most popular song each year
-
-
 # Most popular genre each year
 
 
