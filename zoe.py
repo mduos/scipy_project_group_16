@@ -47,7 +47,7 @@ print(top_10_artists)
 name = top_10_artists[:10].index
 popularity = top_10_artists['popularity'][:10]
 
-fig = plt.figure()
+top_artists_plt = plt.figure()
 
 plt.bar(name, popularity, color = "Orange")
 plt.xlabel('Artists')
@@ -60,7 +60,7 @@ plt.show()
 top_10_songs = df.sort_values('popularity', ascending =False).head(10)[['popularity','song','artist']]
 print(top_10_songs)
 
-fig = plt.figure()
+top_songs_plt = plt.figure()
 
 plt.bar(top_10_songs['song'], top_10_songs['popularity'], color = 'Orange')
 plt.xlabel('Songs')
@@ -73,7 +73,7 @@ plt.show()
 top_10_genres = genres.groupby('genre')[['artist','song', 'explicit','danceability','popularity','loudness','energy','speechiness','instrumentalness','acousticness','liveness','genre']].sum(numeric_only=True).sort_values('popularity', ascending=False).head(10)
 print(top_10_genres)
 
-fig = plt.figure()
+top_genre_plt = plt.figure()
 
 plt.bar(genres['genre'], genres['popularity'], color = 'Orange')
 plt.xlabel('Genre')
