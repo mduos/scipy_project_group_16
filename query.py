@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 
 def query(df):
     """ Function that tells you the number of artists, songs (of a specific genre/artist) and genres are in a dataset. 
-        Takes dataframe as argument. Asks user for input of a keyword and outputs the answer of the query.
+        Takes dataframe as argument. Asks user for input of keywords and outputs the answer of the query.
     """
     
     key = input("Please choose a number corresponding to what you want to know: \n 1. How many artists are in the dataset? \n 2. How many songs are in the dataset? \n 3. How many genres are in the dataset? \n")
@@ -88,9 +88,9 @@ def query(df):
         print(f"There is a total of {genre} genres in the dataset.")
         return
 
-
-
 if __name__ == "__main__":
     # Load dataset
     df = pd.read_csv('data/clean_spotify_dataset.csv')
+    
+    # Ask a query
     query(df)
