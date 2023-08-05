@@ -24,8 +24,14 @@ topArtists(df, 10)
 # Top 10 Songs
 topSongs(df, 10)
 
-# Top 10 Genres
-topGenres(df, 10)
+# How often does each genre occur?
+percGenres(df)
+
+# How many Songs are explicit?
+explicit = df.groupby('explicit', as_index=False).count().sort_values('song', ascending=False)
+df.explicit.value_counts().plot(kind = "pie", autopct='%1.1f%%')
+plt.title("Percentage of Songs with Explicit Content")
+plt.show()
 
 # Explicitness of Songs over the Years
 # Grouping the data by 'years' and calculating the average explicit content for each year
@@ -42,3 +48,7 @@ plt.title('Average Explicitness of Songs over the Years')
 plt.xticks(rotation=45)
 plt.show()
 
+# How many songs each artist has in dataset
+song_per_artist = df.groupby('artist', as_index=False).count().sort_values('song', ascending=False).head(50)
+song_per_artist.plot(x = 'artist', y = 'song', kind = 'bar', xlabel = 'Artist', ylabel = 'Number of Songs', title = 'Number of Songs by Each Artist')
+plt.show()
