@@ -33,10 +33,22 @@ def topArtists(df, num):
     plotTopArtists.set_ylabel('Popularity of the Song')
     return plotTopArtists
 
-def featurePlot(df, feature):
+def featurePlotSingle(df, feature):
     sorted_df = df.sort_values('popularity', ascending = False)
     featurePlot = plt.plot(sorted_df['popularity'], sorted_df[feature], color = 'green')
     plt.xlabel = 'Popularity'
     plt.ylabel(feature)
-    plt.title(f"Feature Plot: {feature} vs. Popularity")
+    plt.title(f"Effect of {feature} on Popularity")
     return featurePlot
+
+def featurePlotTwo(df, feature1, feature2):
+    sorted_df = df.sort_values('popularity', ascending = False)
+    featuresPlot = plt.plot(500,10)
+    plt.subplot(2,1,1)
+    plt.plot(sorted_df['popularity'], sorted_df[feature1], color = 'green')
+    plt.subplot(2,1,1)
+    plt.plot(sorted_df['popularity'], sorted_df[feature2], color = 'orange')
+    plt.xlabel = 'Popularity'
+    plt.ylabel(f"{feature1} and {feature2}")
+    plt.title(f"Effect of {feature1} and {feature2} on Popularity")
+    return featuresPlot
