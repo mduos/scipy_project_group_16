@@ -54,3 +54,11 @@ def featurePlotTwo(df, feature1, feature2):
     plt.ylabel(f"{feature1} and {feature2}")
     plt.title(f"Effect of {feature1} and {feature2} on Popularity")
     return featuresPlot
+
+
+if __name__ == "__main__":
+    # Load data
+    df = pd.read_csv("data/clean_spotify_dataset.csv")
+
+    # Top 10 Artists
+    topArtists(df, 10)
