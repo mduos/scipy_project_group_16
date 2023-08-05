@@ -17,7 +17,7 @@ The file Spotify Analysis.ipynb includes the data visualizations of our project.
 In this file, firstly we break down the structure of the dataset. To give an outline of the dataset we print samples the columns of the dataset, as well as a value description and information about the types of data used in the dataset. 
 Then, we include plots showing the most popular artists, songs and genres. Additionally, we plot the average explicitness of popular songs over the years and we check if there is a significant difference in the popularity of modes (major vs. minor). 
 In this file, we call two different functions that can be used to plot the relation of certain features on the popularity of songs. One for plotting individual features and one for comparing two features and their effect on popularity.
-Lastly, we included a heatmap that portrays the correlation of the features.
+Lastly, we included a heatmap that portrays the correlation of the features and an example for the similarity search that gives you the 5 most similar songs to "Breathe" by Faith Hill.
 
 ## custom_plots.py
 The file custom_plots.py includes multiple functions to make the plots adjustable to the users interests.
