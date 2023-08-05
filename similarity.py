@@ -5,7 +5,7 @@ import pandas as pd
 import numpy as np
 
 # Load the dataset
-df = pd.read_csv('data/spotify_dataset.csv')
+df = pd.read_csv('data/clean_spotify_dataset.csv')
 
 # Preprocess the dataset
 # Performing a normalization on the tempo and energy values so that different scaling has no influence.
@@ -67,7 +67,7 @@ def similarity_search():
     
     # Ask user if they want family-friendly songs til valid input is given.
     while True:
-        family_friendly_input = input("Do you want family-friendly songs? (y/n): ").lower()
+        family_friendly_input = input("Do you only want family-friendly songs? (y/n): ").lower()
         # Check for a valid input, if not valid print message.
         if family_friendly_input in ['y', 'n']:
             family_friendly = family_friendly_input == 'y'
@@ -90,3 +90,6 @@ def similarity_search():
     result = find_similar_songs(song_name, family_friendly)
     # Output the results
     print("The five most similar songs to >{}< are:\n\n{}\n\nHave fun listening!".format(song_name, result))
+
+if __name__ == "__main__":
+    similarity_search()
