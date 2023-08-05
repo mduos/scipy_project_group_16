@@ -9,7 +9,6 @@ def clean_data(df):
 
     # Checking for null values
     null_bool = pd.isnull(df)
-    print(null_bool)
 
     # Drop null values
     df.drop(columns = df[null_bool == True])
