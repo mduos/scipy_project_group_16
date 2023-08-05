@@ -11,7 +11,7 @@ In this file we define the **clean_data(df)** function, which we use to prepare 
 ## query.py
 The file query.py includes a function **query(df)** that asks the user for input of keywords and gives out either the number of artists, songs or genres that the dataset holds.
 
-## Spotify Analysis.ipynb
+## SpotifyAnalysis.ipynb
 The file Spotify Analysis.ipynb includes the data visualizations of our project.
 In this file, firstly we break down the structure of the dataset. To give an outline of the dataset we print samples the columns of the dataset, as well as a value description and information about the types of data used in the dataset. 
 Then, we include plots showing the most popular artists, songs and genres. Additionally, we plot the average explicitness of popular songs over the years and we check if there is a significant difference in the popularity of modes (major vs. minor). 
