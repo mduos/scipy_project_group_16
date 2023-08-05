@@ -7,5 +7,5 @@ The dataset we used for our project is located in the data folder. The source fo
 The file query.py includes:
 
 The file Spotify Analysis.ipynb includes the data visualizations of our project.
-In this file, firstly we break down the structure of the dataset. To give an outline of the dataset we print samples the columns of the dataset, as well as a value description and information about the types of data within used in the dataset. Then, we include plots for the most popular artists, songs and genres. 
+In this file, firstly we break down the structure of the dataset. To give an outline of the dataset we print samples the columns of the dataset, as well as a value description and information about the types of data within used in the dataset. Then, we include plots for the most popular artists, songs and genres. Additionally, we print the average explicitness of popular songs over the years and we check if there is a significant difference in the popularity of modes (major vs. minor).
 
