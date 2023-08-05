@@ -21,3 +21,5 @@ The function topArtists(df, num) works the same way as topSongs, but outputs the
 The function percGenres(df) takes the dataframe as an argument and plots the percentage of each genre in a pie chart. 
 
 Also in this file, the functions for plotting different features are included, as they are called in the Spotify Analysis.ipynb file. Namely, these functions are the featurePlotSingle(df, feature) and featurePlotDouble(df, feature1, feature2). They take one or two (depending on the function) features/ column names of the dataframe as an argument and return a plot that shows the relation between the chosen feature(s) and the popularity. 
+
+The similarity.ipynb file computes the similarity of all songs to a song which the user picks out of the dataset and recommends five similar songs, based on the tempo, energy and genre of the songs. 
