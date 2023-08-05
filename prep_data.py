@@ -4,7 +4,7 @@ import pandas as pd
 
 def clean_data(df):
     ''' Prepares dataset for later use. Takes a dataframe as input and returns it cleaned. 
-        Saves cleaned dataframe as a claned csv
+        Saves cleaned dataframe as a cleaned csv
     '''
 
     # Checking for null values
