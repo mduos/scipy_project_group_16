@@ -6,7 +6,7 @@ Additionally, we included a similarity search, in which one of the songs from th
 The dataset we used for our project is located in the data folder. [Dataset](https://www.kaggle.com/datasets/paradisejoy/top-hits-spotify-from-20002019).
 
 ## prep_data.py
-In this file we define the **clean_data(df)** which we use to prepare the data for later use. Using this function, we drop null values and duplicates.
+In this file we define the **clean_data(df)** function, which we use to prepare the data for later use. Using this function, we drop null values and duplicates.
 
 ## query.py
 The file query.py includes a function **query(df)** that asks the user for input of keywords and gives out either the number of artists, songs or genres that the dataset holds.
