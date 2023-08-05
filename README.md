@@ -3,7 +3,7 @@ We use a dataset containing the most popular songs on spotify from the years 200
 Additionally, we included a similarity search, in which one of the songs from the dataset can be selected and the most similar songs to the input song are listed.
 
 ## Dataset
-The dataset we used for our project is located in the data folder. The source for the dataset can be found when following this link: [Dataset](https://www.kaggle.com/datasets/paradisejoy/top-hits-spotify-from-20002019).
+The dataset we used for our project is located in the data folder. [Dataset](https://www.kaggle.com/datasets/paradisejoy/top-hits-spotify-from-20002019).
 
 ## query.py
 The file query.py includes a function **query(df)** that asks the user for input of keywords and gives out either the number of artists, songs or genres that the dataset holds.
