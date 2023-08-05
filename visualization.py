@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
+import plotly.express as px
 
 from custom_plots import *
 
@@ -41,9 +42,3 @@ plt.title('Average Explicitness of Songs over the Years')
 plt.xticks(rotation=45)
 plt.show()
 
-# Change of Features over Time
-sound_features = df.groupby('year').sum(numeric_only=True)
-
-sound_features.plot('year', 'danceability', label = 'danceability')
-plt.title("Change of Sound Features over Time")
-plt.show()
