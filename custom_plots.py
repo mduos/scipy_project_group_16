@@ -13,7 +13,7 @@ def topSongs(df, num):
 
     # Sort by popularity and only show 'num' amount of entries
     top_songs = helper.sort_values('popularity', ascending = False).head(num).reset_index()
-
+    
     top_songs.plot(x='song', y='popularity', kind = 'bar', color = 'green')
     
     plt.title(f"Top {num} Songs")
@@ -29,6 +29,7 @@ def topArtists(df, num):
     top_artists = df.groupby('artist').sum(numeric_only=True).sort_values('popularity', ascending=False).head(num).reset_index()
     
     # Create a barplot
+
     top_artists.plot(x='artist', y='popularity', kind = 'bar', color = 'green')
     plt.title(f"Top {num} Artists")
     plt.xlabel("Artist")
@@ -37,8 +38,8 @@ def topArtists(df, num):
     plt.show()
 
     
-def topGenres(df, num):
-    """ Takes a dataframe and integer as argument and plots the top genres."""
+def percGenres(df):
+    """ Takes a dataframe as argument and plots the percentage of each genre."""
     
     # Since some songs have multiple genres, we need to separate them 
     # Getting rid of blank spaces 
@@ -50,13 +51,10 @@ def topGenres(df, num):
     # Separate genres
     genres = df.explode('genre')
     
-    # Compile most popular genres
-    top_genres = genres.groupby('genre').sum(numeric_only=True).sort_values('popularity', ascending=False).head(num)
-
     # Create plot
     fig = plt.figure(figsize = (10, 10))
-    genres.genre.value_counts()[:num].plot(kind = "pie", autopct='%1.1f%%')
-    plt.title(f"Top {num} Genres")
+    genres.genre.value_counts().plot(kind = "pie", autopct='%1.1f%%')
+    plt.title(f"Percentage of Genres")
 
     plt.show()
     
@@ -110,8 +108,8 @@ if __name__ == "__main__":
     # Top 10 Songs
     topSongs(df, 10)
 
-    # Top 5 Genres
-    topGenres(df, 5)
+    # Genres
+    percGenres(df)
 
     # Feature Plots
     featurePlotSingle(df, "loudness")
