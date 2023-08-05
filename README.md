@@ -1,6 +1,7 @@
 # scipy_project_group_16
-We use a dataset containing the most popular songs on spotify from the years 2000-2019 to give the user a basic overview about the dataset.
-Additionally, we included a similarity search, in which one of the songs from the dataset can be selected and the most similar songs to the input song are listed.
+We use a dataset containing the most popular songs on spotify from the years 2000-2019. We are interested in the idea that the features of songs influence how popular they are and how this might change over the course of time. 
+Additionally, we included a similarity search, in which the user can choose a song out of the dataset and is recommended a list of similar songs. 
+The goal of our project is to give the user a basic overview of the dataset and furthermore enable interaction with the dataset.
 
 ## Dataset
 The dataset we used for our project is located in the data folder. [Dataset](https://www.kaggle.com/datasets/paradisejoy/top-hits-spotify-from-20002019).
