@@ -52,3 +52,18 @@ plt.show()
 song_per_artist = df.groupby('artist', as_index=False).count().sort_values('song', ascending=False).head(50)
 song_per_artist.plot(x = 'artist', y = 'song', kind = 'bar', xlabel = 'Artist', ylabel = 'Number of Songs', title = 'Number of Songs by Each Artist')
 plt.show()
+
+# Popularity of Modes 'Minor' and 'Major'
+popularityMode = df.groupby('mode').size().reset_index(name='count')
+popularityMode['mode'] = popularityMode['mode'].apply(lambda x: 'Major' if x == 1 else 'Minor')
+plt.bar(popularityMode['mode'], popularityMode['count'], color = 'green')
+plt.xlabel('Mode')
+plt.ylabel('Number of Songs')
+plt.title('Popularity of Each Mode')
+
+# Sound Feature Correlation Heatmap
+sns.set(font_scale=0.8)
+info = df.drop(['key','mode','explicit'], axis=1).corr(method = 'pearson')
+map = sns.heatmap(info, annot = True, fmt = '.1g', vmin=-1, vmax=1, center=0, cmap='inferno', linewidths=1, linecolor='White',square = False, annot_kws={"fontsize": 8})
+map.set_title('Correlation Heatmap')
+map.set_xticklabels(map.get_xticklabels(), rotation=90)
