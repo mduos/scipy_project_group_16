@@ -30,4 +30,4 @@ The function **percGenres(df)** takes the dataframe as an argument and plots the
 Also in this file, the functions for plotting different features are included, as they are called in the Spotify Analysis.ipynb file. Namely, these functions are the **featurePlotSingle(df, feature)** and **featurePlotDouble(df, feature1, feature2)**. They take one or two (depending on the function) features/ column names of the dataframe as an argument and return a plot that shows the relation between the chosen feature(s) and the popularity. 
 
 ## similarity.ipynb
-The similarity.ipynb file computes the similarity of all songs to a song which the user picks out of the dataset and recommends five similar songs, based on the tempo, energy and genre of the songs. 
+The similarity.ipynb file computes the similarity of all songs to a song which the user picks out of the dataset and recommends five similar songs, based on the tempo, energy and genre of the songs. As an additional feature we include the possibility of only showing family friendly songs, so filtering out songs with explicit content. 
