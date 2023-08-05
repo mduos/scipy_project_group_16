@@ -14,14 +14,13 @@ def topSongs(df, num):
     # Sort by popularity and only show 'num' amount of entries
     top_songs = helper.sort_values('popularity', ascending = False).head(num).reset_index()
 
-    plot_top_songs = top_songs.plot(x='song', y='popularity', kind = 'bar', color = 'green')
+    top_songs.plot(x='song', y='popularity', kind = 'bar', color = 'green')
     
-    plot_top_songs.set_title(f"Top {num} Songs")
-    plot_top_songs.set_xlabel('Songs')
-    plot_top_songs.set_ylabel('Popularity of the Song')
+    plt.title(f"Top {num} Songs")
+    plt.xlabel('Songs')
+    plt.ylabel('Popularity of the Song')
 
     plt.show()
-    return plot_top_songs
 
 
 def topArtists(df, num):
@@ -30,10 +29,12 @@ def topArtists(df, num):
     top_artists = df.groupby('artist').sum(numeric_only=True).sort_values('popularity', ascending=False).head(num).reset_index()
     
     # Create a barplot
-    plot_top_artists = top_artists.plot(x='artist', y='popularity', kind = 'bar', color = 'green')
-    plot_top_artists.set(title = f"Top {num} Artists", xlabel= "Artist", ylabel = "Popularity")
+    top_artists.plot(x='artist', y='popularity', kind = 'bar', color = 'green')
+    plt.title(f"Top {num} Artists")
+    plt.xlabel("Artist")
+    plt.ylabel("Popularity")
 
-    return plot_top_artists
+    plt.show()
 
     
 def topGenres(df, num):
@@ -54,10 +55,10 @@ def topGenres(df, num):
 
     # Create plot
     fig = plt.figure(figsize = (10, 10))
-    plot_top_genres = genres.genre.value_counts()[:10].plot(kind = "pie", autopct='%1.1f%%')
-    plot_top_genres.set_title(f"Top {num} Genres")
+    genres.genre.value_counts()[:num].plot(kind = "pie", autopct='%1.1f%%')
+    plt.title(f"Top {num} Genres")
 
-    return plot_top_genres
+    plt.show()
     
 
 
@@ -75,7 +76,7 @@ def featurePlotSingle(df, feature):
     plt.ylabel(feature)
     plt.title(f"Effect of {feature} on Popularity")
 
-    return feature_plot
+    plt.show()
 
 def featurePlotDouble(df, feature1, feature2):
     """ Takes a dataframe and two features/column names as argument and returns plot that shows 
@@ -97,7 +98,7 @@ def featurePlotDouble(df, feature1, feature2):
     plt.ylabel(f"{feature1} and {feature2}")
     plt.title(f"Effect of {feature1} and {feature2} on Popularity")
    
-    return features_plot
+    plt.show()
 
 if __name__ == "__main__":
     # Load data
@@ -111,6 +112,11 @@ if __name__ == "__main__":
 
     # Top 5 Genres
     topGenres(df, 5)
+
+    # Feature Plots
+    featurePlotSingle(df, "loudness")
+    featurePlotDouble(df, "valence", "energy")
+
 
 
 
