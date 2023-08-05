@@ -8,7 +8,7 @@ def topSongs(df, numHead):
     #artists sorted from most to least popular (popularity in relation to artist)
     helper = df.copy()
     helper['song'] = helper['song'].astype(str)+ " by " +helper['artist'].astype(str)
-    df_popularSongs = helper.groupby('song').sum().sort_values('popularity', ascending = False)
+    df_popularSongs = helper.groupby('song').sort_values('popularity', ascending = False)
     df_popularSongs = df_popularSongs.reset_index()
     df_popularSongs
 
